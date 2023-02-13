@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+:host:not(:first-child) {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-top: 70px;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+span {
+  position: absolute;
+  /* background: #dcdcdc45; */
+  font-size: 14px;
+  padding: 2px;
+  color: white;
+  top: -37px;
+  left: 6px;
+}

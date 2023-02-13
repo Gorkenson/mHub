@@ -1,0 +1,9 @@
+<app-line
+  [style.height]="line.height"
+  (mousedown)="mouseDown($event)"
+  (dblclick)="mouseDblClick()"
+  class="flexLineClass"
+  [line]="line"
+  *ngFor="let line of lines"
+>
+</app-line>

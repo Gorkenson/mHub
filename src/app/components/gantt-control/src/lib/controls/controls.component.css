@@ -1,0 +1,11 @@
+:host {
+  width: 50px;
+  display: block;
+  float: left;
+}
+
+div {
+  width: 1000px;
+  text-align: center;
+  margin-top: 37px;
+}

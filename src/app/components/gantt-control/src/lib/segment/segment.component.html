@@ -1,0 +1,26 @@
+<div
+  (mousemove)="mouseMove($event)"
+  (click)="select(segment)"
+  class="flex"
+  data-test="test"
+>
+  <div class="div">
+    <span
+      class="text"
+      [style.font-size]="segment.textSize || defaultTextSize"
+      [style.color]="segment.textColor || defaultTextColor"
+      [hidden]="hiddenData()">
+       {{ text }}
+      </span>
+    <div
+      [style.left]="left"
+      [style.top]="top"
+      [style.segment]="segment.textColor"
+      [style.segment]="segment.textSize"
+      class="tooltip"
+      *ngIf="!globalService.isUserDragging"
+    >
+      {{ tooltip }}
+    </div>
+  </div>
+</div>

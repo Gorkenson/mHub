@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { StateLine } from './components/gantt-control/src/lib/interfaces/state-line';
+import { StateType } from './components/gantt-control/src/lib/interfaces/state-type';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-hub';
+
 }

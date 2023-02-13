@@ -1,0 +1,56 @@
+<h2>Gantt Info</h2>
+<div class="gantt-container">
+  <mat-card >
+    <msi-gantt-control
+    [statesTypes]="types"
+    [statesLines]="linesFinal"
+    (stateSelected)="test($event)"
+    (changeDates)="testDates($event)"
+    >
+    </msi-gantt-control>
+  </mat-card>
+</div>
+<div class="info-container">
+  <mat-card class="panel-info">
+    <h2>Status</h2>
+    <div>
+      <div class="mat-body-1">00h 22min 02 sec</div>
+    </div>
+  </mat-card>
+  <mat-card class="panel-info">
+    <h2>Order</h2>
+    <div>
+      <div class="cell">00h 22min 02 sec</div>
+      <div class="table-1">
+        <div class="cell-1" [textContent]="startDate"></div>
+        <div class="cell-1" [textContent]="endDate"></div>
+      </div>
+      <div class="table-1">
+        <div class="cell-1">ORDER</div>
+        <div class="cell-1" [textContent]="orderNumber"></div>
+      </div>
+      <div class="table-1">
+        <div class="cell-1">REF</div>
+        <div class="cell-1">B13</div>
+      </div>
+      <div class="table-1">
+        <div class="cell-1">Cliente</div>
+        <div class="cell-1">---</div>
+      </div>
+      <div class="table-1">
+        <div class="cell-1">Quantity</div>
+        <div class="cell-1">120/200</div>
+      </div>
+      <div class="table-1">
+        <div class="cell-1">Percent</div>
+        <div class="cell-1">60%</div>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="panel-info">
+    <h2>Products</h2>
+    <div>
+      <div class="mat-body-1">00h 22min 02 sec</div>
+    </div>
+  </mat-card>
+</div>
