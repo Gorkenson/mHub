@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GanttInfoComponent } from './components/gantt-info/gantt-info.component';
 import { MatCardModule } from '@angular/material/card';
 
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,9 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     GanttControlModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

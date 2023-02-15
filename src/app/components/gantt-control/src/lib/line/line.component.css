@@ -21,7 +21,8 @@ span {
   /* background: #dcdcdc45; */
   font-size: 14px;
   padding: 2px;
-  color: white;
+  color: black;
+  /* color: white; */
   top: -37px;
   left: 6px;
 }

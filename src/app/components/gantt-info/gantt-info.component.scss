@@ -1,7 +1,9 @@
 .mat-card{
-  background-color: rgb(48,48,48);
-  color: white;
-  border: 3px solid maroon;
+  // background-color: rgb(48,48,48);
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
+  border: 0px solid black;
+  // border: 2px solid maroon;
   margin:2px;
 }
 .mat-card-in{
@@ -13,6 +15,7 @@
   flex-direction:row;
   justify-content:start;
   text-align: center;
+  margin: 10px;
 }
 
 .info-container {
