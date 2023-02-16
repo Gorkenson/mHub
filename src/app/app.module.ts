@@ -13,7 +13,6 @@ import { GanttInfoComponent } from './components/gantt-info/gantt-info.component
 import { MatCardModule } from '@angular/material/card';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
