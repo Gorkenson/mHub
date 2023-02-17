@@ -26,9 +26,9 @@
 }
 
 .text-right {
-  text-align: left;
-  position: relative;
-  left: -50px;
+  text-align: right;
+  position: absolute;
+  left: -100px;
   display: inline-block;
   width: 100px;
   font-size: 0.7em;
