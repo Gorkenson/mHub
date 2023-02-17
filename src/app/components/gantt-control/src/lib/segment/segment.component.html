@@ -5,13 +5,13 @@
   data-test="test"
 >
   <div class="div">
-    <span
+    <span *ngIf="text != ''"
       class="text"
       [style.font-size]="segment.textSize || defaultTextSize"
       [style.color]="segment.textColor || defaultTextColor"
       [hidden]="hiddenData()">
        {{ text }}
-      </span>
+    </span>
     <div
       [style.left]="left"
       [style.top]="top"

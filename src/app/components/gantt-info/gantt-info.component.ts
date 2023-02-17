@@ -7,7 +7,7 @@ interface TimeRange {
   viewValue: string;
 }
 const START_DATE = 0;
-const END_DATE = 0;
+const END_DATE = 1;
 enum timeRangeTypes {
   Last_15Min = 0,
   Last_1H,
@@ -26,10 +26,10 @@ enum timeRangeTypes {
 export class GanttInfoComponent implements OnInit {
   //gantt component data
   types: StateType[] = [
-    {id:0, name:"steel uno", color:"royalblue"},
-    {id:1, name:"steel dos", color:"green"},
-    {id:2, name:"steel tres", color:"rgb(255,0,0)"},
-    {id:3, name:"steel cuatro", color:"orange"}
+    {id:0, name:"steel uno", color:"#B48EAD"},
+    {id:1, name:"steel dos", color:"#A3BE8C"},
+    {id:2, name:"steel tres", color:"#BF616A"},
+    {id:3, name:"steel cuatro", color:"#D08770"}
   ];
 
   linesFinal: StateLine[] = [
@@ -106,48 +106,65 @@ export class GanttInfoComponent implements OnInit {
   }
   setDateRange(id: number){
     this.selectedDateRange = [new Date(),new Date()];
+    this.selectedDateRange[END_DATE] = new Date();
+    this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
     switch(id){
       case timeRangeTypes.Last_15Min:{
-        this.selectedDateRange[END_DATE] = new Date();
-        this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
         this.selectedDateRange[START_DATE].setMinutes(this.selectedDateRange[END_DATE].getMinutes() - 15);
         break;
       };
       case timeRangeTypes.Last_1H:{
-        this.selectedDateRange[END_DATE] = new Date();
-        this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
         this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[END_DATE].getHours() - 1);
         break;
       };
       case timeRangeTypes.Last_4H:{
-        this.selectedDateRange[END_DATE] = new Date();
-        this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
         this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[END_DATE].getHours() - 4);
         break;
       };
       case timeRangeTypes.Last_8H:{
-        this.selectedDateRange[END_DATE] = new Date();
-        this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
         this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[END_DATE].getHours() - 8);
         break;
       };
       case timeRangeTypes.Last_24h:{
-        this.selectedDateRange[END_DATE] = new Date();
-        this.selectedDateRange[START_DATE] = new Date(this.selectedDateRange[END_DATE]);
         this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[END_DATE].getHours() - 24);
         break;
       };
       case timeRangeTypes.Last_Morning:{
+        const now = this.selectedDateRange[START_DATE].getHours();
+        if((now > 6)&&(now < 14))
+          this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[START_DATE].getHours() - 24);
+
+        this.selectedDateRange[START_DATE].setHours(6);
+        this.selectedDateRange[START_DATE].setMinutes(0);
+        this.selectedDateRange[START_DATE].setSeconds(0);
+        this.selectedDateRange[END_DATE] = new Date(this.selectedDateRange[START_DATE]);
+        this.selectedDateRange[END_DATE].setHours(14);
         break;
       };
       case timeRangeTypes.Last_Evening:{
+        const now = this.selectedDateRange[START_DATE].getHours();
+        if((now > 13)&&(now < 22))
+          this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[START_DATE].getHours() - 24);
+
+        this.selectedDateRange[START_DATE].setHours(14);
+        this.selectedDateRange[START_DATE].setMinutes(0);
+        this.selectedDateRange[START_DATE].setSeconds(0);
+        this.selectedDateRange[END_DATE] = new Date(this.selectedDateRange[START_DATE]);
+        this.selectedDateRange[END_DATE].setHours(22);
         break;
       };
       case timeRangeTypes.Last_Night:{
+        const now = this.selectedDateRange[START_DATE].getHours();
+        this.selectedDateRange[START_DATE].setHours(this.selectedDateRange[START_DATE].getHours() - 24);
+        this.selectedDateRange[START_DATE].setHours(22);
+        this.selectedDateRange[START_DATE].setMinutes(0);
+        this.selectedDateRange[START_DATE].setSeconds(0);
+        this.selectedDateRange[END_DATE] = new Date(this.selectedDateRange[START_DATE]);
+        this.selectedDateRange[END_DATE].setHours(this.selectedDateRange[END_DATE].getHours() + 8);
         break;
       };
     }
-    this.startDateText = 'Start: '+this.selectedDateRange[START_DATE].toLocaleDateString();
-    this.endDateText = 'End: '+this.selectedDateRange[END_DATE].toLocaleDateString();
+    this.startDateText = 'Start: '+this.selectedDateRange[START_DATE].toLocaleDateString('es-ES',{hour: '2-digit',minute: '2-digit',});
+    this.endDateText = 'End: '+this.selectedDateRange[END_DATE].toLocaleDateString('es-ES',{hour: '2-digit',minute: '2-digit',});
   }
 }

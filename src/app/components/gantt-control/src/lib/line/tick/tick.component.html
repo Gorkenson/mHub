@@ -1,9 +1,11 @@
 <div class="container">
-  <div 
+  <div
     [style.height]="height"
     [style.top]="top"
     #tick
     class="tick">
   </div>
-  <span class="text"> {{ time }}</span>
+
+  <span *ngIf="index !=6" class="text"> {{ time }}</span>
+  <span *ngIf="index ==6" class="text-right"> {{ time }}</span>
 </div>
